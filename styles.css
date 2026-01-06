@@ -40,13 +40,14 @@
 }
 
 .sidebar a.active, .sidebar a:hover {
-  background: #4f46e5;
+  background: #4141c7;
 }
 
 /* --- Main content moves to the right --- */
 .main-content {
   margin-left: 60px;             /* start with collapsed sidebar */
-  transition: margin-left 0.3s;  /* smooth shift */
+  transition: margin-left 0.3s; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* smooth shift */
 }
 
 .sidebar:hover ~ .main-content {
@@ -59,6 +60,7 @@ header {
   color: white;
   padding: 20px;
   text-align: center;
+  font-family: cursive;
 }
 
 .content {
@@ -94,6 +96,7 @@ footer {
   background: #222;
   color: white;
   margin-top: 40px;
+  font-family: cursive;
 }
 
 /* --- Responsive adjustments --- */
