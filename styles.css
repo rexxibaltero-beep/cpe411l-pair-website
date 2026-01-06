@@ -1,13 +1,59 @@
-/* --- General Reset & Body --- */
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f5f5;
-  color: #333;
-  line-height: 1.6;
+/* --- Collapsible Sidebar --- */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;             /* collapsed width */
+  height: 100%;
+  background: #1f2937;
+  overflow-x: hidden;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  transition: width 0.3s;  /* smooth expand */
+  z-index: 1000;
 }
 
-/* --- Header & Navigation --- */
+.sidebar:hover {
+  width: 200px;             /* expanded width on hover */
+}
+
+.sidebar h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1rem;          /* smaller when collapsed */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s;
+}
+
+.sidebar a.active, .sidebar a:hover {
+  background: #4f46e5;
+}
+
+/* --- Main content moves to the right --- */
+.main-content {
+  margin-left: 60px;             /* start with collapsed sidebar */
+  transition: margin-left 0.3s;  /* smooth shift */
+}
+
+.sidebar:hover ~ .main-content {
+  margin-left: 200px;            /* shift when sidebar expands */
+}
+
+/* --- Header & Content --- */
 header {
   background: #4f46e5;
   color: white;
@@ -15,22 +61,6 @@ header {
   text-align: center;
 }
 
-header h1 {
-  margin: 0;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a.active, nav a:hover {
-  text-decoration: underline;
-}
-
-/* --- Content Section --- */
 .content {
   max-width: 800px;
   margin: 30px auto;
@@ -40,19 +70,21 @@ nav a.active, nav a:hover {
   text-align: center;
 }
 
-/* --- Images Styling --- */
-.content img {
-  max-width: 100%;       /* responsive */
-  height: auto;          /* keep aspect ratio */
-  display: block;
-  margin: 20px auto;
-  border-radius: 10px;   /* rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s; /* smooth hover effect */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
 }
 
-.content img:hover {
-  transform: scale(1.05);   /* slight zoom on hover */
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
 }
 
 /* --- Footer --- */
@@ -64,20 +96,19 @@ footer {
   margin-top: 40px;
 }
 
-/* --- Mobile Responsive --- */
-@media (max-width: 600px) {
-
-  header {
-    padding: 15px;
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
   }
 
-  nav a {
-    display: inline-block;
-    margin: 5px;
+  .main-content {
+    margin-left: 0;
   }
 
-  .content {
-    margin: 15px;
-    padding: 15px;
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
