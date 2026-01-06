@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Ito ay isang KOTSE</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pajero.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -19,10 +19,23 @@
 
 <section class="content">
   <h2>dito makikita ang kotse</h2>
-  <p>
-   Ito ang gustong kotse ni aron
-  </p>
-  <img src="aron-car.webp" alt="Gustong kotse ni Aron" width="600">
+  <p>Ito ang gustong kotse ni Aron</p>
+
+  <div class="gallery">
+
+    <div class="car-card">
+      <img src="aron-car.webp" alt="Gustong kotse ni Aron">
+      <h3>Mitsubishi Pajero Evo</h3>
+
+      <!-- Checkbox Hack for collapsible description -->
+      <input type="checkbox" id="desc1" class="desc-toggle">
+      <label for="desc1" class="desc-btn">Description</label>
+      <p class="car-desc">
+        Mitsubishi Pajero Evolution is a legendary off-road SUV with powerful engine, advanced suspension, and rally heritage.
+      </p>
+    </div>
+
+  </div>
 </section>
 
 <footer>
